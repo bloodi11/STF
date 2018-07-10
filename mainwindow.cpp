@@ -28,7 +28,7 @@ void MainWindow::on_readButton1_clicked()
         ui->path2->setText(path2);
 
 
-       auto workSpace = std::make_unique<WorkSpace>(path1, path2);
+       auto workSpace = std::make_shared<WorkSpace>(path1, path2);
 
        workSpace->findCorners(*workSpace);
 
@@ -38,6 +38,7 @@ void MainWindow::on_readButton1_clicked()
        workSpace->calculateTransformation(*workSpace);
 
        float me = workSpace->returnMatchingError(*workSpace);
+
 
        ui->textBrowser->append("TRANSFORMATION:");
        ui->textBrowser->append(QString::fromStdString("[X] = " + std::to_string(workSpace->tx) + " + [" + std::to_string(workSpace->m*workSpace->cosfi) + " " + std::to_string(-workSpace->m*workSpace->sinfi))+"] [x]");

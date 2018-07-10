@@ -1,7 +1,6 @@
 #include "engine.h"
 #include <sstream>
 #include <cmath>
-#include <iostream>
 #include <fstream>
 
 void JobReader::readData(Image& img, QString pathToRead){
@@ -166,7 +165,7 @@ void JobRotate::calculateRotationMatrix(WorkSpace &workspace){
     float dist2x = workspace.peak2.x - workspace.peak4.x;
     float dist2y = workspace.peak2.y - workspace.peak4.y;
 
-    float radians = atan2(dist1y, dist1x) - atan2(dist2y, dist2x);
+    float radians = atan2(dist1x, dist1y) - atan2(dist2x, dist2y);
 
     cosfi = cos(radians);
     sinfi = sin(radians);
@@ -182,12 +181,20 @@ float JobMatchingError::returnMatchingError(WorkSpace& workspace){
     float vx1, vy1, vx2, vy2;
 
     vx1 = workspace.tx + workspace.m * workspace.peak1.x * workspace.cosfi - workspace.m * workspace.peak1.y * workspace.sinfi - 0.458;
-    vy1 = workspace.ty + workspace.m * workspace.peak1.x * workspace.sinfi + workspace.m * workspace.peak1.y * workspace.cosfi - 0.255;
+    vy1 = workspace.ty + workspace.m * workspace.peak1.x * workspace.sinfi + workspace.m * workspace.peak1.y * workspace.cosfi - 0.165;
     vx2 = workspace.tx + workspace.m * workspace.peak3.x * workspace.cosfi - workspace.m * workspace.peak3.y * workspace.sinfi - 0.032;
-    vy2 = workspace.ty + workspace.m * workspace.peak3.x * workspace.sinfi + workspace.m * workspace.peak3.y * workspace.cosfi - 0.165;
+    vy2 = workspace.ty + workspace.m * workspace.peak3.x * workspace.sinfi + workspace.m * workspace.peak3.y * workspace.cosfi - 0.255;
 
-    std::cout << vx1 + 0.458 << " " << vy1 + 0.165 << std::endl;
-    std::cout << vx2 + 0.032 << " " << vy2 + 0.255 << std::endl;
+    for(auto&& e : workspace.img1.pixelData){
+        if(e.r != 255 && e.g != 255 && e.b != 255){
+       float qx= workspace.tx + workspace.m * e.x * workspace.cosfi - workspace.m * e.y * workspace.sinfi;
+       float qy = workspace.ty + workspace.m * e.x * workspace.sinfi + workspace.m * e.y * workspace.cosfi;
+       std:: cout << qx << " " << qy <<std::endl;
+        }
+    }
+
+   // std::cout << vx1 + 0.458 << " " << vy1 + 0.165 << std::endl;
+   // std::cout << vx2 + 0.032 << " " << vy2 + 0.255 << std::endl;
     float mE = (sqrt(vx1*vx1 + vy1*vy1) + sqrt(vx2*vx2 + vy2*vy2)) / 2;
 
     return mE;
@@ -196,4 +203,8 @@ float JobMatchingError::returnMatchingError(WorkSpace& workspace){
 WorkSpace::WorkSpace(QString path1, QString path2){
     readData(img1, path1);
     readData(img2, path2);
+}
+
+WorkSpace::WorkSpace(){
+
 }

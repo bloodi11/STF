@@ -5,6 +5,8 @@
 #include <string>
 #include <memory>
 #include <QString>
+#include <iostream>
+
 
 
 class Image;
@@ -90,6 +92,7 @@ public:
     Image img1;
     Image img2;
 
+
     Pixel peak1;
     Pixel peak2;
     Pixel peak3;
@@ -97,6 +100,7 @@ public:
 
     std::vector<float> transformationMatrix;
 
+    WorkSpace();
     WorkSpace(QString path1, QString path2);
 };
 
