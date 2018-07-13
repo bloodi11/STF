@@ -189,7 +189,10 @@ float JobMatchingError::returnMatchingError(WorkSpace& workspace){
         if(e.r != 255 && e.g != 255 && e.b != 255){
        float qx= workspace.tx + workspace.m * e.x * workspace.cosfi - workspace.m * e.y * workspace.sinfi;
        float qy = workspace.ty + workspace.m * e.x * workspace.sinfi + workspace.m * e.y * workspace.cosfi;
-       std:: cout << qx << " " << qy <<std::endl;
+       std::unique_ptr<Pixel> pixTemp = std::make_unique<Pixel>();
+       pixTemp->x = qx;
+       pixTemp->y = qy;
+       workspace.img3.pixelData.push_back(*pixTemp);
         }
     }
 

@@ -91,6 +91,7 @@ class WorkSpace : public JobReader, public JobGradient, public JobScale, public 
 public:
     Image img1;
     Image img2;
+    Image img3;
 
 
     Pixel peak1;

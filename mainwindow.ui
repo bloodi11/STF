@@ -6,45 +6,45 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>655</width>
-    <height>353</height>
+    <width>1329</width>
+    <height>669</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Simple Transformation Finder</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QFormLayout" name="formLayout_4">
+   <layout class="QFormLayout" name="formLayout_5">
     <item row="0" column="0">
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <item>
-       <layout class="QFormLayout" name="formLayout_3">
-        <item row="0" column="0">
-         <widget class="QPushButton" name="readButton1">
-          <property name="text">
-           <string>Load data</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>548</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QVBoxLayout" name="verticalLayout">
+     <layout class="QFormLayout" name="formLayout">
+      <item row="0" column="0">
+       <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
-         <layout class="QFormLayout" name="formLayout">
+         <layout class="QFormLayout" name="formLayout_2">
+          <item row="0" column="0">
+           <widget class="QPushButton" name="readButton1">
+            <property name="text">
+             <string>Load data</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>548</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QFormLayout" name="formLayout_3">
           <item row="0" column="0">
            <widget class="QLabel" name="label1">
             <property name="text">
@@ -54,6 +54,12 @@
           </item>
           <item row="0" column="1">
            <widget class="QLabel" name="path1">
+            <property name="baseSize">
+             <size>
+              <width>500</width>
+              <height>0</height>
+             </size>
+            </property>
             <property name="text">
              <string>...</string>
             </property>
@@ -62,7 +68,7 @@
          </layout>
         </item>
         <item>
-         <layout class="QFormLayout" name="formLayout_2">
+         <layout class="QFormLayout" name="formLayout_4">
           <item row="0" column="0">
            <widget class="QLabel" name="label2">
             <property name="text">
@@ -72,6 +78,12 @@
           </item>
           <item row="0" column="1">
            <widget class="QLabel" name="path2">
+            <property name="minimumSize">
+             <size>
+              <width>500</width>
+              <height>0</height>
+             </size>
+            </property>
             <property name="text">
              <string>...</string>
             </property>
@@ -79,28 +91,93 @@
           </item>
          </layout>
         </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QLabel" name="header1">
+            <property name="text">
+             <string>Transformation Equation:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTextBrowser" name="textBrowser">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>500</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
        </layout>
       </item>
-      <item>
-       <widget class="QLabel" name="header1">
-        <property name="text">
-         <string>Transformation Equation:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QTextBrowser" name="textBrowser"/>
+      <item row="0" column="1">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Input figure:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="draw1">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Output figure:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="draw2">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="baseSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </item>
    </layout>
+   <zorder>draw1</zorder>
+   <zorder>draw2</zorder>
+   <zorder>draw2</zorder>
+   <zorder>draw2</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>655</width>
+     <width>1329</width>
      <height>21</height>
     </rect>
    </property>
